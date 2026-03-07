@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>y1q</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="loading-overlay">
+        <div class="loader-text">
+            <span class="y-letter">Y</span><span class="one-q">1q</span><span class="aqdhan">aqdhan</span>
+        </div>
+    </div>
+
+    <main class="main-content">
+
+        <div class="image-container">
+            <img src="https://images.unsplash.com/photo-1700189961541-fb263f5dee5e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="fly">
+        </div>
+
+        <div class="copyright">
+            &copy; Yaqdhan
+        </div>
+
+        <button class="fullscreen-btn" id="fs-btn" aria-label="Enter Fullscreen">
+            <div class="square-icon"></div>
+        </button>
+
+    </main>
+
+    <script>
+        const fsBtn = document.getElementById('fs-btn');
+        fsBtn.addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.warn(`Fullscreen error: ${err.message}`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        });
+    </script>
+</body>
+
+</html>
