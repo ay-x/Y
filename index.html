@@ -3,48 +3,196 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>y1q</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Yaqdhan</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow: hidden;
+            touch-action: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        #loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            pointer-events: none;
+        }
+        
+        .loader-half {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 50vh;
+            background-color: black;
+            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        
+        .loader-top {
+            top: 0;
+        }
+        
+        .loader-bottom {
+            bottom: 0;
+        }
+        
+        .loading-bar-container {
+            position: relative;
+            width: 30vw;
+            min-width: 150px;
+            max-width: 300px;
+            height: 1px;
+            background-color: #808080;
+            z-index: 10000;
+            overflow: hidden;
+            transition: opacity 0.3s ease;
+        }
+        
+        .loading-progress {
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            transform: translateX(-100%);
+            animation: fillProgress 2s linear forwards;
+        }
+        
+        @keyframes fillProgress {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(0%);
+            }
+        }
+        
+        body.loaded .loader-top {
+            transform: translateY(-100%);
+        }
+        
+        body.loaded .loader-bottom {
+            transform: translateY(100%);
+        }
+        
+        body.loaded .loading-bar-container {
+            opacity: 0;
+        }
+        
+        .image-container {
+            width: 100%;
+            height: 100vh;
+            background-image: url('love.JPG');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        
+        .top-symbol {
+            position: absolute;
+            top: 8%;
+            left: 18%;
+            color: white;
+            mix-blend-mode: difference;
+            font-family: 'Space Mono', monospace;
+            font-size: clamp(20px, 3vw, 28px);
+            pointer-events: none;
+            z-index: 10;
+        }
+        
+        .text-overlay {
+            position: absolute;
+            top: 20%;
+            left: 18%;
+            color: white;
+            mix-blend-mode: difference;
+            font-size: clamp(14px, 2vw, 22px);
+            line-height: 1.5;
+            max-width: 90vw;
+            pointer-events: none;
+            z-index: 10;
+        }
+        
+        .bottom-text {
+            position: absolute;
+            bottom: 8%;
+            left: 18%;
+            color: white;
+            mix-blend-mode: difference;
+            font-family: 'Space Mono', monospace;
+            font-size: clamp(10px, 1.2vw, 14px);
+            opacity: 0.7;
+            letter-spacing: 0.5px;
+            z-index: 10;
+        }
+        
+        @media (max-width: 768px) {
+            .top-symbol {
+                left: 5%;
+                top: 6%;
+            }
+            .text-overlay {
+                left: 5%;
+                top: 15%;
+            }
+            .bottom-text {
+                left: 5%;
+                bottom: 6%;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <div class="loading-overlay">
-        <div class="loader-text">
-            <span class="y-letter">Y</span><span class="one-q">1q</span><span class="aqdhan">aqdhan</span>
+    <div id="loader-wrapper">
+        <div class="loader-half loader-top"></div>
+        <div class="loader-half loader-bottom"></div>
+        <div class="loading-bar-container">
+            <div class="loading-progress"></div>
         </div>
     </div>
 
-    <main class="main-content">
+    <div class="image-container">
 
-        <div class="image-container">
-            <img src="https://images.unsplash.com/photo-1700189961541-fb263f5dee5e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="fly">
+        <div class="top-symbol">
+            Ꮨ⁂
         </div>
 
-        <div class="copyright">
-            &copy; Yaqdhan
+        <div class="text-overlay">
+            "Life seems to be a black<br> and white silent movie<br> about nothing, flickering<br> silently on film<br> superimposed onto the<br> retinas of my eyes."<br>
+            <br>"The movie is almost over."<br>
+            <br> - Suicide Note found in<br> Aokigahara (青木ヶ原),<br> 2007
         </div>
 
-        <button class="fullscreen-btn" id="fs-btn" aria-label="Enter Fullscreen">
-            <div class="square-icon"></div>
-        </button>
+        <div class="bottom-text">
+            this art frame is under construction, to be revealed soon by yaqdhan.
+        </div>
 
-    </main>
-
+    </div>
     <script>
-        const fsBtn = document.getElementById('fs-btn');
-        fsBtn.addEventListener('click', () => {
-            if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen().catch(err => {
-                    console.warn(`Fullscreen error: ${err.message}`);
-                });
-            } else {
-                document.exitFullscreen();
-            }
+        document.addEventListener("DOMContentLoaded", function() {
+
+            setTimeout(function() {
+                document.body.classList.add('loaded');
+            }, 2000);
         });
     </script>
 </body>
