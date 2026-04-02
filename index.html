@@ -9,12 +9,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
 
     <style>
+     
+        
         body,
         html {
             margin: 0;
             padding: 0;
             width: 100%;
-            height: 100%;
+            height: 100vh;       
+            height: 100dvh;
             background-color: black;
             font-family: Arial, Helvetica, sans-serif;
             overflow: hidden;
@@ -23,6 +26,7 @@
             -ms-user-select: none;
             user-select: none;
         }
+   
         
         #loader-wrapper {
             position: fixed;
@@ -94,19 +98,22 @@
         body.loaded .loading-bar-container {
             opacity: 0;
         }
+    
         
         .image-container {
             width: 100%;
             height: 100vh;
-            background-image: url('love.jpg');
+            height: 100dvh;
+            background-image: url('love.jpg');   
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             position: relative;
         }
+     
         
         .top-symbol {
-            position: absolute;
+            position: fixed;
             top: 8%;
             left: 18%;
             color: white;
@@ -118,7 +125,7 @@
         }
         
         .text-overlay {
-            position: absolute;
+            position: fixed;
             top: 20%;
             left: 18%;
             color: white;
@@ -131,8 +138,8 @@
         }
         
         .bottom-text {
-            position: absolute;
-            bottom: 8%;
+            position: fixed;
+            bottom: 6%;
             left: 18%;
             color: white;
             mix-blend-mode: difference;
@@ -140,9 +147,10 @@
             font-size: clamp(10px, 1.2vw, 14px);
             opacity: 0.7;
             letter-spacing: 0.5px;
+            pointer-events: none;
             z-index: 10;
         }
-        
+      
         @media (max-width: 768px) {
             .top-symbol {
                 left: 5%;
@@ -154,7 +162,7 @@
             }
             .bottom-text {
                 left: 5%;
-                bottom: 6%;
+                bottom: 12%;
             }
         }
     </style>
@@ -177,8 +185,8 @@
         </div>
 
         <div class="text-overlay">
-            "Life seems to be a black<br> and white silent movie<br> about nothing, flickering<br> silently on film<br> superimposed onto the<br> retinas of my eyes."<br>
-            <br>"The movie is almost over."<br>
+            "Life seems to be a black<br> and white silent movie<br> about nothing, flickering<br> silently on film<br> superimposed onto the<br> retinas of my eyes.<br>
+            <br> The movie is almost over."<br>
             <br> - Suicide Note found in<br> Aokigahara (青木ヶ原),<br> 2007
         </div>
 
@@ -187,14 +195,15 @@
         </div>
 
     </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-
             setTimeout(function() {
                 document.body.classList.add('loaded');
             }, 2000);
         });
     </script>
+
 </body>
 
 </html>
